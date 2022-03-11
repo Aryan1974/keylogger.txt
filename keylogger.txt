@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keylogger</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"
+        integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=="
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+</head>
+
+<body class="m-5">
+    <div class="container shadow rounded-lg p-3"
+        style="min-height: 75px; font-size: 25px; font-weight: bold; font-family: 'Times New Roman', Times, serif; overflow: auto;">
+        <div class="output"></div>
+    </div>
+    <div class="container mt-4">
+        <div class="alert alert-primary shadow" role="alert"
+            style="text-align: center; font-size: 25px; font-weight: bold; font-family: 'Times New Roman', Times, serif; width: fit-content; margin: 20px auto;">
+            Input Field
+        </div>
+        <div class="input-group mb-3" style="margin: auto; max-width: 400px;">
+            <input type="text" class="form-control shadow input-source rounded-pill" placeholder="Enter Data">
+        </div>
+    </div>
+    <div class="container mt-5" style="width: 175px; min-height: 200px;">
+        <div class="output-fade d-none border border-4 border-dark rounded-3 shadow-lg"
+            style="text-align: center; font-size: 85px; font-weight: bold; font-family: 'Times New Roman', Times, serif;">
+            A
+        </div>
+    </div>
+</body>
+<script>
+    $('.input-source').keyup(function () {
+        var value = this.value;
+        $('.output').append(value);
+        $('.input-source').val('');
+        $('.output-fade').html(value);
+        $('.output-fade').removeClass('d-none');
+        setTimeout(() => {
+            $('.output-fade').addClass('d-none');
+        }, 300);
+    });
+</script>
+
+</html>
